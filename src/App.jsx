@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
-import TaskDetail from "../pages/TaskDetail";
+import Dashboard from "./pages/Dashboard";
+import TaskDetail from "./pages/TaskDetail";
 
 function App() {
   return (
