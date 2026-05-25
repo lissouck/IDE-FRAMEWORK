@@ -1,11 +1,14 @@
-import { useLocalStorage, useEffect } from "react";
+import { useState, useEffect } from "react";
 import TaskCard from "../components/TaskCard";
 import TaskForm from "../components/TaskForm";
 
 function Dashboard() {
 
-  const [tasks, setTasks] = useLocalStorage("taskflow_data", []);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("taskflow_data");
 
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("taskflow_data", JSON.stringify(tasks));
