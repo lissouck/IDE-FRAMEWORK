@@ -1,36 +1,33 @@
 import { useState } from "react";
 
 function TaskForm({ onAddTask }) {
-
-  const [titre, setTitre] = useState("");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [statut, setStatut] = useState("A faire");
+  const [status, setStatus] = useState("A faire");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newTask = {
-      id: Date.now(),
-      titre,
+      title,
       description,
-      statut,
+      status,
     };
 
     onAddTask(newTask);
 
-    setTitre("");
+    setTitle("");
     setDescription("");
-    setStatut("A faire");
+    setStatus("A faire");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-
       <input
         type="text"
         placeholder="Titre"
-        value={titre}
-        onChange={(e) => setTitre(e.target.value)}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
 
       <br /><br />
@@ -44,8 +41,8 @@ function TaskForm({ onAddTask }) {
       <br /><br />
 
       <select
-        value={statut}
-        onChange={(e) => setStatut(e.target.value)}
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
       >
         <option>A faire</option>
         <option>En cours</option>
@@ -54,10 +51,7 @@ function TaskForm({ onAddTask }) {
 
       <br /><br />
 
-      <button type="submit">
-        Ajouter
-      </button>
-
+      <button type="submit">Ajouter</button>
     </form>
   );
 }

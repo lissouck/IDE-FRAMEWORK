@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function TaskCard({ task }) {
   return (
-    <Link to={`/task/${task.id}`}>
+    <Link to={`/task/${task._id}`}>
       <div
         style={{
           border: "1px solid black",
@@ -10,9 +10,9 @@ function TaskCard({ task }) {
           padding: "10px",
         }}
       >
-        <h2>{task.titre}</h2>
+        <h2>{task.title}</h2>
         <p>{task.description}</p>
-        <strong>{task.statut}</strong>
+        <strong>{task.status}</strong>
       </div>
     </Link>
   );
